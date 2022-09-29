@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react'; //Necesario para poder usar la funcion especial de useState
+
 
 function App() {
+  const [numero, setNumero] = useState(0);
+  function generarEnteroAleatorio(){
+    const enteroAleatorio = Math.trunc(Math.random()*10);
+    setNumero(enteroAleatorio)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <p>Numero aleatorio: {numero}</p>
+      <button onClick={generarEnteroAleatorio}>Generar entero aleatorio</button>
     </div>
   );
 }
