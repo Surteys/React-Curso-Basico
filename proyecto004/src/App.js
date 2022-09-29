@@ -3,15 +3,19 @@ import { useState } from 'react'; //Necesario para poder usar la funcion especia
 
 
 function App() {
-  const [numero, setNumero] = useState(0);
-  function generarEnteroAleatorio(){
-    const enteroAleatorio = Math.trunc(Math.random()*10);
-    setNumero(enteroAleatorio)
+  const [numerosAleatorios, setNumeros] = useState([0,0,0,0,0]);
+  function generarEnterosAleatorios(){
+    const numeros = new Array(5);
+    for (let i = 0; i < numeros.length; i++) {
+      numeros[i] = Math.trunc(Math.random()*10);
+    }
+    setNumeros(numeros)
   }
   return (
     <div>
-      <p>Numero aleatorio: {numero}</p>
-      <button onClick={generarEnteroAleatorio}>Generar entero aleatorio</button>
+      <p>Numeros Aleatorios: </p>
+      {numerosAleatorios.map(n => (<p>{n}</p>))}
+      <button onClick={generarEnterosAleatorios}>Generara numeros aleatorios</button>
     </div>
   );
 }
